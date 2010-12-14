@@ -3,6 +3,7 @@
 // Register behavior's method
 sfPropelBehavior::registerMethods('changelog', array(
   array('ncPropelChangeLogBehavior', 'getChangeLog'),
+  array('ncPropelChangeLogBehavior', 'hasChangeLog'),
   array('ncPropelChangeLogBehavior', 'get1NRelatedChangeLog'),
   array('ncPropelChangeLogBehavior', 'getNNRelatedChangeLog'),
   array('ncPropelChangeLogBehavior', 'getChangeLogRoute')

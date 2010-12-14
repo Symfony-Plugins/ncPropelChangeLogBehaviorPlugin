@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This class is the base class for the adapters for each 
+ * This class is the base class for the adapters for each
  * type of operation.
  *
  * These classes allows to access each type operation in a uniform way.

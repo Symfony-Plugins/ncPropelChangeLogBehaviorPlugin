@@ -11,10 +11,10 @@ class ncChangeLogConfigHandler
   {
     return sfConfig::get("app_nc_change_log_behavior_escape_values", false);
   }
-  
+
   static public function getDateTimeFormat()
   {
-    return sfConfig::get("app_nc_change_log_behavior_date_format", 'Y/m/d H:i:s');
+    return sfConfig::get("app_nc_change_log_behavior_date_time_format", 'Y/m/d H:i:s');
   }
 
   static public function getDateFormat()

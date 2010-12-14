@@ -60,7 +60,7 @@ class ncPropelChangeLogBehavior
 
   /**
    * After an object has been saved, commit the changes to its changelog.
-   * 
+   *
    * @param mixed $object
    * @param PropelPDO $con
    */
@@ -122,7 +122,7 @@ class ncPropelChangeLogBehavior
   /**
    * Get $object's ChangeLog and return it as an array of ncChangeLogAdapters.
    * If no entry is found, answer an empty Array.
-   * 
+   *
    * @param mixed $object
    * @param Criteria $criteria
    * @param PropelPDO $con
@@ -131,6 +131,16 @@ class ncPropelChangeLogBehavior
   public static function getChangeLog($object, $criteria = null, $con = null, $transformToAdapters = true)
   {
     return self::getChangeLogByPkClassName($object->getPrimaryKey(), get_class($object), $criteria, $con, $transformToAdapters);
+  }
+
+  public static function hasChangeLog($object, $con = null)
+  {
+    $criteria = new Criteria();
+
+    $criteria->add(ncChangeLogEntryPeer::CLASS_NAME, get_class($object));
+    $criteria->add(ncChangeLogEntryPeer::OBJECT_PK, $object->getPrimaryKey());
+
+    return (ncChangeLogEntryPeer::doCount($criteria, true, $con) > 0);
   }
 
   public static function getChangeLogByPkClassName($primaryKey, $className, $criteria = null, $con = null, $transformToAdapters = true)
